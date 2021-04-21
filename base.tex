@@ -1,0 +1,116 @@
+\documentclass[12pt,titlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{todonotes}
+\usepackage[headheight=15pt]{geometry}
+\usepackage{fancyhdr}
+\PassOptionsToPackage{table,dvipsnames}{xcolor}
+\usepackage[printonlyused]{acronym}
+\usepackage{tabularx}
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\graphicspath{ {./graphics/} }
+
+% ------------------------------------------
+% 
+%   Created by mla1 - code@mlang.co
+%
+% ------------------------------------------
+
+% page layout
+\geometry{a4paper, top=3cm, bottom=3cm, left=2.5cm, right=2.5cm, headsep=1.25cm}
+\savegeometry{content}
+
+% colors
+%\definecolor{primary}{rgb}{0.858, 0.188, 0.478}
+%\definecolor{secondary}{RGB}{219, 48, 122}
+
+
+% header / footer
+\newcommand{\headerandfooter}{
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \lhead{\lvashort}
+  \chead{}
+  \rhead{\groupname}
+  \renewcommand{\footrulewidth}{0.4pt}
+  \lfoot{\footnotesize \adatelong}
+  \cfoot{\footnotesize \atitle}
+  \rfoot{\footnotesize \thepage}}
+\pagestyle{plain}
+}
+
+\newcommand{\lva}{Advanced Software Engineering PR}
+\newcommand{\lvashort}{ASE PR}			% on each page in the header - left side
+\newcommand{\groupname}{INSO-02}		% on each page in the header - right side
+
+\newcommand{\doctitle}[1]{
+  \newcommand{\atitle}{#1}
+}
+
+\newcommand{\docsubtitle}[1]{
+  \newcommand{\asubtitle}{#1}
+}
+
+\newcommand{\docversion}[1]{
+  \newcommand{\aversion}{#1}
+}
+
+\newcommand{\docdate}[2]{
+  \newcommand{\adate}{#1}
+  \newcommand{\adatelong}{#2}
+}
+
+
+\newcommand{\doctitlepage}{%
+
+\newgeometry{top=1.5cm, bottom=3cm, left=2.5cm, right=2.5cm, headsep=0cm}
+
+\begin{titlepage}
+
+\includegraphics[height=1.5cm,right]{logo}
+
+\begin{center}
+\vspace{4cm}
+{\Huge\atitle}
+\vspace{1.25cm}\\
+\hrulefill \\
+\vspace{.75cm}
+\textbf{\LARGE\asubtitle}
+\end{center}
+\hrulefill
+
+\begin{center}
+\vspace{1.5cm}
+{\large \textbf{Vienna University of Technology} \\
+\lva \\
+2021S \\
+}
+\end{center}
+
+\vspace{3cm}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabularx}{260pt}{X l}		% adjust width as necessary
+		First Author		& first@email.com \\
+		Second Author		& second@email.com \\
+		Third Author		& Max.Musterman@gmail.com \\
+	\end{tabularx}
+\end{table}
+
+
+\begin{table}[b!]
+	\centering
+	\begin{tabularx}{260pt}{X r}
+		Version		& \aversion \\
+		Date		& \adate \\
+	\end{tabularx}
+\end{table}
+
+\end{titlepage}
+\restoregeometry
+}
